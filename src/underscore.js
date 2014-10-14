@@ -71,7 +71,14 @@ var myFunctions = {
   // Also, you will need to use recursion
   // when you find an array inside of an array
   flatten: function(array) {
-
-  }
-};
+    var flatArr = [];
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].constructor.name === "Array"){
+        flatArr = flatArr.concat(flatten(array[i]));
+      } else {
+        flatArr.push(arr[i]);
+      }
+    }
+    return flatArr;
+});
 module.exports = myFunctions;
