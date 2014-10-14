@@ -4,21 +4,30 @@ var expect = require("chai").expect;
 // all of these tests are pending...make sure to add , function(){ expect ....}
 
 describe('first', function() {
-  it('should be able to pull out the first element of an array');
-    // expect(myFunctions.first([1,2,3])).to.equal(1);
-
-
-  it('should be able to accept a user-defined index first([1,2,3],2) should return [1,2]');
-
+  it('should be able to pull out the first element of an array', function(){
+    expect(myFunctions.first([1,2,3])).to.eql(1);
   });
 
+  it('should be able to accept a user-defined index first([1,2,3],2) should return [1,2]', function(){
+    expect(myFunctions.first([1,2,3],2)).to.eql([1, 2]);
+
+  });
+});
 
 describe('last', function() {
-  it('should pull the last element from an array');
+  it('should pull the last element from an array',
+    function(){ 
+      expect(myFunctions.last([1,2,3,4,5,6])).to.eql(6);
+  });
 
-  it('should accept an index argument');
+  it('should accept an index argument', function() {
+    expect(myFunctions.last([1,2,3,4,5,6,7],4)).to.eql([4,5,6,7]);
+  });
 
-  it('should return nothing if zero is passed in as the index');
+  it('should return nothing if zero is passed in as the index', function(){
+    expect(myFunctions.last(0)).to.eql(undefined);
+  });
+
 
   it('should return all the array\'s elements if the index argument is larger than the length of the array');
 
